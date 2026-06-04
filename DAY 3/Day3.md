@@ -32,9 +32,7 @@
   <img src="IntelImageClassification-confusion_matrix.png" alt="IntelImageClassification-confusion_matrix" style="max-width:100%; height:auto;">
 </p>
 <p align="center">
-  <img src="IntelImageClassification-sample_predictions.png"
-       alt="IntelImageClassification-sample_predictions"
-       style="max-width:100%; height:auto;">
+  <img src="IntelImageClassification-sample_predictions.png" alt="IntelImageClassification-sample_predictions" style="max-width:100%; height:auto;">
 </p>
 
 ### Also generates <b><i>intel_image_classifier.keras</i></b> which is used to Predict 
