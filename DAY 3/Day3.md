@@ -1,5 +1,7 @@
 # Day 3
 
+# Output for each Program 
+
 ## NeuralNetworkProblem.py script generates the following outputs
 
 <p align="center">
