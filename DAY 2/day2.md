@@ -5,9 +5,7 @@
 ## Using linear Regression
 
 <p align="center">
-  <img src="LinearRegression.png"
-       alt="LinearRegression"
-       style="max-width:100%; height:auto;">
+  <img src="LinearRegression.png" alt="LinearRegression" style="max-width:100%; height:auto;">
 </p>
 
 ## Using Logistic Regression 
@@ -21,9 +19,7 @@
 ## using Linear Regression on student marks  
 
 <p align="center">
-  <img src="LinearRegressionOnStudentMarks.png"
-       alt="LinearRegressionOnStudentMarks"
-       style="max-width:100%; height:auto;">
+  <img src="LinearRegressionOnStudentMarks.png" alt="LinearRegressionOnStudentMarks" style="max-width:100%; height:auto;">
 </p>
 
 ## using Logistic Regression on student marks 
