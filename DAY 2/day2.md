@@ -26,7 +26,7 @@
        style="max-width:100%; height:auto;">
 </p>
 
-## using Logistic Regression on student marks problem 
+## using Logistic Regression on student marks 
 ```text
  Accuracy: 0.9915
 
