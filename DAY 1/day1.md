@@ -102,3 +102,10 @@ kubectl exec -it <podname> -- bash
 ```
 
 ## Run jupyter command after entering BASH
+```kubernetes
+jupyter lab --NotebookApp.token = 1234
+```
+
+## Open the url in your browser
+http://&lt;server-ip&gt;:&lt;servicePortNumber&gt;
+### Enter the token number as the password
