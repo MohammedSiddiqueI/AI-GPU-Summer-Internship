@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Recognize Person</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+
+<body>
+
+    <nav>
+
+        <div class="nav-container">
+
+            <h2>Face Recognition</h2>
+
+            <div class="nav-links">
+
+                <a href="{{ url_for('register') }}">
+                    Register
+                </a>
+
+                <a
+                    href="{{ url_for('recognize') }}"
+                    class="active"
+                >
+                    Recognize
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <main class="container">
+
+        <div class="card wide">
+
+            <h1>Recognize People</h1>
+
+            <p class="description">
+                Upload an image to detect registered people.
+            </p>
+
+
+            {% if persons %}
+
+                <p class="description">
+                    {{ persons|length }} person(s) currently registered.
+                </p>
+
+            {% else %}
+
+                <div class="message error">
+
+                    No people are registered yet.
+
+                    <a href="{{ url_for('register') }}">
+                        Register someone first.
+                    </a>
+
+                </div>
+
+            {% endif %}
+
+
+            {% if message %}
+
+                <div class="message">
+                    {{ message }}
+                </div>
+
+            {% endif %}
+
+
+            <form
+                action="{{ url_for('recognize') }}"
+                method="POST"
+                enctype="multipart/form-data"
+            >
+
+                <label for="image">
+                    Select Image
+                </label>
+
+                <input
+                    type="file"
+                    id="image"
+                    name="image"
+                    accept="image/png,image/jpeg"
+                    required
+                    onchange="previewImage(event)"
+                >
+
+
+                <div
+                    id="preview-container"
+                    class="preview-container hidden"
+                >
+
+                    <p>
+                        Selected Image
+                    </p>
+
+                    <img
+                        id="preview"
+                        alt="Selected image"
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    {% if not persons %}disabled{% endif %}
+                >
+                    Recognize
+                </button>
+
+            </form>
+
+
+            {% if result_image %}
+
+                <div class="result">
+
+                    <h2>
+                        Recognition Result
+                    </h2>
+
+                    <img
+                        src="{{ url_for(
+                            'static',
+                            filename=result_image
+                        ) }}"
+                        class="result-image"
+                        alt="Recognition result"
+                    >
+
+
+                    {% if matches %}
+
+                        <div class="match-box">
+
+                            <h3>
+                                Registered People Found
+                            </h3>
+
+
+                            {% for match in matches %}
+
+                                <p>
+                                    <strong>
+                                        {{ match.name }}
+                                    </strong>
+
+                                    —
+
+                                    {{ match.score }}%
+                                    similarity
+                                </p>
+
+                            {% endfor %}
+
+                        </div>
+
+                    {% else %}
+
+                        <div class="no-match-box">
+
+                            <h3>
+                                No Registered Person Found
+                            </h3>
+
+                            <p>
+                                Faces may have been detected,
+                                but none matched a registered person.
+                            </p>
+
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        function previewImage(event) {
+
+            const file =
+                event.target.files[0];
+
+            const preview =
+                document.getElementById("preview");
+
+            const container =
+                document.getElementById(
+                    "preview-container"
+                );
+
+
+            if (!file) {
+
+                container.classList.add(
+                    "hidden"
+                );
+
+                return;
+            }
+
+
+            preview.src =
+                URL.createObjectURL(file);
+
+            container.classList.remove(
+                "hidden"
+            );
+        }
+
+    </script>
+
+</body>
+
+</html>
+```

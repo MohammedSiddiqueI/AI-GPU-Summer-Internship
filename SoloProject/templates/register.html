@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register Person</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-container">
+
+            <h2>Face Recognition</h2>
+
+            <div class="nav-links">
+                <a
+                    href="{{ url_for('register') }}"
+                    class="active"
+                >
+                    Register
+                </a>
+
+                <a href="{{ url_for('recognize') }}">
+                    Recognize
+                </a>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <main class="container">
+
+        <div class="card">
+
+            <h1>Register Person</h1>
+
+            <p class="description">
+                Enter a name and upload a clear image containing one face.
+            </p>
+
+
+            {% if message %}
+
+                <div class="message {% if success %}success{% else %}error{% endif %}">
+                    {{ message }}
+                </div>
+
+            {% endif %}
+
+
+            <form
+                action="{{ url_for('register') }}"
+                method="POST"
+                enctype="multipart/form-data"
+            >
+
+                <label for="name">
+                    Person Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter person's name"
+                    required
+                >
+
+
+                <label for="image">
+                    Face Image
+                </label>
+
+                <input
+                    type="file"
+                    id="image"
+                    name="image"
+                    accept="image/png,image/jpeg"
+                    required
+                    onchange="previewImage(event)"
+                >
+
+
+                <div
+                    id="preview-container"
+                    class="preview-container hidden"
+                >
+
+                    <p>Selected Image</p>
+
+                    <img
+                        id="preview"
+                        alt="Selected image"
+                    >
+
+                </div>
+
+
+                <button type="submit">
+                    Register Person
+                </button>
+
+            </form>
+
+
+            {% if persons %}
+
+                <div class="registered-section">
+
+                    <h2>
+                        Registered People
+                    </h2>
+
+                    <p class="description">
+                        {{ persons|length }} person(s) registered
+                    </p>
+
+
+                    <div class="registered-list">
+
+                        {% for person in persons %}
+
+                            <div class="registered-person">
+                                {{ loop.index }}. {{ person.name }}
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        function previewImage(event) {
+
+            const file = event.target.files[0];
+
+            const preview =
+                document.getElementById("preview");
+
+            const container =
+                document.getElementById("preview-container");
+
+
+            if (!file) {
+
+                container.classList.add("hidden");
+
+                return;
+            }
+
+
+            preview.src =
+                URL.createObjectURL(file);
+
+            container.classList.remove("hidden");
+        }
+
+    </script>
+
+</body>
+
+</html>
+

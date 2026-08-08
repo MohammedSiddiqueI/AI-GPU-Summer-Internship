@@ -1,0 +1,197 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f5f5;
+    color: #222;
+}
+
+nav {
+    background: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 18px 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-container h2 {
+    margin: 0;
+    font-size: 19px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #666;
+    text-decoration: none;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #111;
+}
+
+.container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background: white;
+    padding: 32px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.card.wide {
+    max-width: 700px;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.description {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="file"] {
+    margin-bottom: 22px;
+}
+
+input[type="text"] {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fafafa;
+}
+
+button {
+    border: none;
+    background: #111;
+    color: white;
+    padding: 13px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    background: #333;
+}
+
+.message {
+    background: #f0f0f0;
+    padding: 12px 14px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.message.success {
+    background: #e9f8ed;
+}
+
+.message.error {
+    background: #fdecec;
+}
+
+.preview-container {
+    margin-bottom: 22px;
+}
+
+.preview-container p {
+    font-weight: bold;
+}
+
+.preview-container img {
+    max-width: 100%;
+    max-height: 350px;
+    border-radius: 6px;
+}
+
+.hidden {
+    display: none;
+}
+
+.result {
+    margin-top: 35px;
+    border-top: 1px solid #ddd;
+    padding-top: 25px;
+}
+
+.result-image {
+    display: block;
+    max-width: 100%;
+    max-height: 650px;
+    margin: 15px auto;
+    border-radius: 6px;
+}
+
+.match-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: #e9f8ed;
+    border-radius: 6px;
+}
+
+.no-match-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: #fdecec;
+    border-radius: 6px;
+}
+
+.match-box h3,
+.no-match-box h3 {
+    margin-top: 0;
+}
+
+@media (max-width: 600px) {
+
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .container {
+        margin-top: 25px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+}
