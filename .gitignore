@@ -41,3 +41,96 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+
+# ==============================
+# Python
+# ==============================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# ==============================
+# Virtual Environments
+# ==============================
+venv/
+.venv/
+env/
+ENV/
+
+# ==============================
+# Registered Face Data
+# Do NOT upload people's images
+# or face embeddings
+# ==============================
+facerec/data/persons.json
+facerec/data/faces/*
+
+# Keep folder in Git
+!facerec/data/faces/.gitkeep
+
+# ==============================
+# Temporary Uploaded Images
+# ==============================
+facerec/uploads/*
+
+# Keep folder in Git
+!facerec/uploads/.gitkeep
+
+# ==============================
+# Recognition Result Images
+# ==============================
+facerec/static/results/*
+
+# Keep folder in Git
+!facerec/static/results/.gitkeep
+
+# ==============================
+# Environment Variables / Secrets
+# ==============================
+.env
+.env.*
+*.env
+
+# ==============================
+# IDE
+# ==============================
+.vscode/
+.idea/
+
+# ==============================
+# Windows
+# ==============================
+Thumbs.db
+Desktop.ini
+
+# ==============================
+# macOS
+# ==============================
+.DS_Store
+
+# ==============================
+# Logs
+# ==============================
+*.log
+
+# ==============================
+# Temporary Files
+# ==============================
+*.tmp
+*.temp
+
+# ==============================
+# Python / Test Cache
+# ==============================
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# ==============================
+# Build Files
+# ==============================
+build/
+dist/
+*.egg-info/
